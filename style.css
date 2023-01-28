@@ -9,12 +9,12 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #c3bef0;
+    background: #ffc1c8;
   }
   .wrapper{
     padding: 25px;
     border-radius: 10px;
-    background: #F8F8F8;
+    background: #e6e1d6;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   }
   .cards, .card, .view{
@@ -64,14 +64,14 @@
     height: 100%;
     position: absolute;
     border-radius: 7px;
-    background: #fff;
+    background: #f0eeea;
     pointer-events: none;
     backface-visibility: hidden;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     transition: transform 0.25s linear;
   }
   .card .front-view img{
-    width: 19px;
+    width: 40px;
   }
   .card .back-view img{
     max-width: 45px;
@@ -91,7 +91,7 @@
       width: 350px;
     }
     .card .front-view img{
-      width: 17px;
+      width: 33px;
     }
     .card .back-view img{
       max-width: 40px;
@@ -103,7 +103,7 @@
       width: 300px;
     }
     .card .front-view img{
-      width: 15px;
+      width: 30px;
     }
     .card .back-view img{
       max-width: 35px;
