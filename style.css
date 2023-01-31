@@ -136,7 +136,6 @@
 
   .start__btn {
     padding: 3px 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     cursor: pointer;
     margin-top: 25px;
     text-transform: uppercase;
@@ -144,9 +143,15 @@
     border-radius: 10px;
     border: 1px solid #1B1919;
     transition: transform 0.25s linear;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     font-size: 25px;
     background: #e6e1d6;
     color:#1B1919;
+  }
+
+  .start__btn:hover {
+    background: #ebe7e0;
+
   }
 
 
