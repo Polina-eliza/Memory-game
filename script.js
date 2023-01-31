@@ -65,25 +65,27 @@ cards.forEach(card => {
 });
 
 
-// const startButton = document.querySelector(".intro__screen button");
-// const startScreen = document.querySelector(".initial__screen");
-// const gameScreen = document.querySelector(".wrapper");
-
-// startButton.addEventListener("click", function() {
-//     startScreen.style.display = "none";
-//     gameScreen.style.display = "block";
-// });
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const wrapper = document.querySelector('.wrapper');
     const startButton = document.querySelector('.start__btn');
     const startScreen = document.querySelector(".initial__screen");
+    const timerDisplay = document.querySelector('.timer');
   
     wrapper.style.display = 'none';
   
     startButton.addEventListener('click', function() {
-      wrapper.style.display = 'block';
-      startScreen.style.display = "none";
+        let timeLeft = 3;
+        startScreen.style.display = "none";
+        timerDisplay.textContent = timeLeft;
+        const timerId = setInterval(function() {
+            timeLeft--;
+            if (timeLeft === 0) {
+                clearInterval(timerId);
+                wrapper.style.display = 'block';
+                timerDisplay.textContent = '';
+            } else {
+                timerDisplay.textContent = timeLeft;
+            }
+        }, 1000);
     });
-  });
+});
