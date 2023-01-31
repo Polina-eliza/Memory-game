@@ -73,14 +73,18 @@ cards.forEach(card => {
 });
 
 
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const wrapper = document.querySelector('.wrapper');
     const startButton = document.querySelector('.start__btn');
     const startScreen = document.querySelector(".initial__screen");
     const timerDisplay = document.querySelector('.timer');
-  
+    const countDownTimer = document.querySelector('.game__timer');
+
     wrapper.style.display = 'none';
-  
+    countDownTimer.style.display = 'none';
+    
     startButton.addEventListener('click', function() {
         let timeLeft = 3;
         startScreen.style.display = "none";
@@ -90,13 +94,55 @@ document.addEventListener('DOMContentLoaded', function() {
             if (timeLeft === 0) {
                 clearInterval(timerId);
                 wrapper.style.display = 'block';
+                countDownTimer.style.display = 'block';
                 timerDisplay.textContent = '';
+                let seconds = 60;
+                countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
+                function tick() {
+                  seconds--;
+                  countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
+                  if (seconds > 0) {
+                    setTimeout(tick, 1000);
+                  }
+                }
+                setTimeout(tick, 1000);
             } else {
                 timerDisplay.textContent = timeLeft;
             }
         }, 1000);
     });
 });
+
+
+
+
+
+
+
+
+
+
+  
+//     wrapper.style.display = 'none';
+  
+//     startButton.addEventListener('click', function() {
+//         let timeLeft = 3;
+//         startScreen.style.display = "none";
+//         timerDisplay.textContent = timeLeft;
+//         const timerId = setInterval(function() {
+//             timeLeft--;
+//             if (timeLeft === 0) {
+//                 clearInterval(timerId);
+//                 wrapper.style.display = 'block';
+//                 timerDisplay.textContent = '';
+//             } else {
+//                 timerDisplay.textContent = timeLeft;
+//             }
+//         }, 1000);
+//     });
+// });
+
+
 
 
 // let seconds = 60;
