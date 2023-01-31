@@ -2,6 +2,11 @@ const cards = document.querySelectorAll(".card");
 let matched = 0;
 let cardOne, cardTwo;
 let disableDeck = false;
+const wrapper = document.querySelector('.wrapper');
+const startScreen = document.querySelector(".initial__screen");
+const timerDisplay = document.querySelector('.timer');
+const heading = document.createElement("h1");
+
 function flipCard({target: clickedCard}) {
     if(cardOne !== clickedCard && !disableDeck) {
         clickedCard.classList.add("flip");
@@ -22,6 +27,8 @@ function matchCards(img1, img2) {
         audio.play();
         matched++;
         if (matched == 8) {
+            heading.textContent = "Good Job!";
+            wrapper.prepend(heading);
             setTimeout(() => {
                 return shuffleCard();
             }, 1000);
@@ -49,6 +56,7 @@ function shuffleCard() {
     matched = 0;
     disableDeck = false;
     cardOne = cardTwo = "";
+    heading.textContent = "";
     let arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
     arr.sort(() => Math.random() > 0.5 ? 1 : -1);
     cards.forEach((card, i) => {
@@ -89,3 +97,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     });
 });
+
+
+let seconds = 60;
+const countDownTimer = document.querySelector('.game__timer');
+
+function tick() {
+    seconds--;
+    countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
+    if (seconds > 0) {
+        setTimeout(tick, 1000);
+    }
+}
+
+setTimeout(tick, 1000);

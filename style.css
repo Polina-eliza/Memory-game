@@ -150,12 +150,32 @@
   }
 
   .start__btn:hover {
-    background: #ebe7e0;
+    background: #ece8e1;
   }
 
   .timer {
     font-size: 80px;
     font-weight: 500;
+ }
+
+ .congratulations {
+    text-align: center;
+    font-size: 80px;
+ }
+
+ .game__timer {
+    font-size: 30px;
+    font-weight: 500;
+    background: #e6e1d6;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    padding: 5px 30px;
+    border-radius: 10px;
+    margin: 10px auto;
+ }
+
+ .flex__wrapper {
+    display: flex;
+    flex-direction: column;
  }
 
 
@@ -189,4 +209,4 @@
     }
   }
 
- 
+  
