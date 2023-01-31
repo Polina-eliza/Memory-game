@@ -158,11 +158,6 @@
     font-weight: 500;
  }
 
- .congratulations {
-    text-align: center;
-    font-size: 80px;
- }
-
  .game__timer {
     font-size: 30px;
     font-weight: 500;
@@ -178,6 +173,17 @@
     flex-direction: column;
  }
 
+ .game__outcome__won {
+    font-size: 40px;
+    font-weight: 600;
+    margin: 15px auto;
+ }
+
+ .game__outcome__lost {
+    font-size: 35px;
+    font-weight: 600;
+    margin: 15px auto;
+ }
 
   @media screen and (max-width: 768px) {
     

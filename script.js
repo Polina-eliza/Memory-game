@@ -26,13 +26,13 @@ function matchCards(img1, img2) {
         let audio = document.querySelector(".audio");
         audio.play();
         matched++;
-        if (matched == 8) {
-            heading.textContent = "Good Job!";
-            wrapper.prepend(heading);
-            setTimeout(() => {
-                return shuffleCard();
-            }, 1000);
-        }
+        // if (matched == 8) {
+        //     heading.textContent = "Good Job!";
+        //     wrapper.prepend(heading);
+        //     setTimeout(() => {
+        //         return shuffleCard();
+        //     }, 1000);
+        // }
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
         cardOne = cardTwo = "";
@@ -81,9 +81,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const startScreen = document.querySelector(".initial__screen");
     const timerDisplay = document.querySelector('.timer');
     const countDownTimer = document.querySelector('.game__timer');
+    const gameOutcomeWon = document.querySelector('.game__outcome__won');
+    const gameOutcomeLost = document.querySelector('.game__outcome__lost');
 
     wrapper.style.display = 'none';
     countDownTimer.style.display = 'none';
+    gameOutcomeWon.style.display = 'none';
+    gameOutcomeLost.style.display = 'none';
     
     startButton.addEventListener('click', function() {
         let timeLeft = 3;
@@ -99,42 +103,58 @@ document.addEventListener('DOMContentLoaded', function() {
                 let seconds = 60;
                 countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
                 function tick() {
-                  seconds--;
-                  countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
-                  if (seconds > 0) {
+                    seconds--;
+                    countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
+                    if (seconds === 0 || matched == 8 ) {
+                    countDownTimer.style.display = 'none';
+                    gameOutcomeWon.style.display = 'block';
+                    }
+                    if (seconds === 0 && matched !== 8) {
+                    countDownTimer.style.display = 'none';
+                    gameOutcomeLost.style.display = 'block';
+                    gameOutcomeWon.style.display = 'none';
+                    }
+                    if (seconds > 0) {
                     setTimeout(tick, 1000);
-                  }
-                }
-                setTimeout(tick, 1000);
-            } else {
-                timerDisplay.textContent = timeLeft;
-            }
-        }, 1000);
-    });
-});
-
-
-
-
-
-
-
-
-
-
-  
-//     wrapper.style.display = 'none';
-  
-//     startButton.addEventListener('click', function() {
-//         let timeLeft = 3;
-//         startScreen.style.display = "none";
-//         timerDisplay.textContent = timeLeft;
-//         const timerId = setInterval(function() {
-//             timeLeft--;
-//             if (timeLeft === 0) {
-//                 clearInterval(timerId);
-//                 wrapper.style.display = 'block';
-//                 timerDisplay.textContent = '';
+                    }
+                    }
+                    setTimeout(tick, 1000);
+                    } else {
+                    timerDisplay.textContent = timeLeft;
+                    }
+                    }, 1000);
+                    });
+                    });
+                    
+                    
+                    
+                    
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+//                 function tick() {
+//                   seconds--;
+//                   countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
+//                   if (seconds === 0 || matched == 8 ) {
+//                     countDownTimer.style.display = 'none';
+//                     gameOutcomeWon.style.display = 'block';
+//                   }
+//                   if (seconds === 0) {
+//                     countDownTimer.style.display = 'none';
+//                     gameOutcomeLost.style.display = 'block';
+//                   } 
+//                   if (seconds > 0) {
+//                     setTimeout(tick, 1000);
+//                   }
+//                 }
+//                 setTimeout(tick, 1000);
 //             } else {
 //                 timerDisplay.textContent = timeLeft;
 //             }
@@ -145,15 +165,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// let seconds = 60;
-// const countDownTimer = document.querySelector('.game__timer');
 
-// function tick() {
-//     seconds--;
-//     countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
-//     if (seconds > 0) {
-//         setTimeout(tick, 1000);
-//     }
-// }
 
-// setTimeout(tick, 1000);
+
+
+
+
+
