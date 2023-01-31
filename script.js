@@ -15,45 +15,6 @@ function flipCard({target: clickedCard}) {
         matchCards(cardOneImg, cardTwoImg);
     }
 }
-// function matchCards(img1, img2) {
-//     if(img1 === img2) {
-//         matched++;
-//         if(matched == 8) {
-//             setTimeout(() => {
-//                 return shuffleCard();
-//             }, 1000);
-//         }
-//         cardOne.removeEventListener("click", flipCard);
-//         cardTwo.removeEventListener("click", flipCard);
-//         cardOne = cardTwo = "";
-//         return disableDeck = false;
-//     }
-//     setTimeout(() => {
-//         cardOne.classList.add("shake");
-//         cardTwo.classList.add("shake");
-//     }, 400);
-//     setTimeout(() => {
-//         cardOne.classList.remove("shake", "flip");
-//         cardTwo.classList.remove("shake", "flip");
-//         cardOne = cardTwo = "";
-//         disableDeck = false;
-//     }, 1200);
-
-//     let audio = newAudio('match__sound.mp3');
-//      if (img1 === img2) {
-//         audio.play();
-//         matched++;
-//         };
-
-
-
-
-//     // let audio = document.querySelector(".audio");
-//     // if (img1 === img2) {
-//     // audio.play();
-//     // matched++;
-//     // };
-// }
 
 function matchCards(img1, img2) {
     if (img1 === img2) {
@@ -84,7 +45,6 @@ function matchCards(img1, img2) {
 
 
 
-
 function shuffleCard() {
     matched = 0;
     disableDeck = false;
@@ -104,3 +64,26 @@ cards.forEach(card => {
     card.addEventListener("click", flipCard);
 });
 
+
+// const startButton = document.querySelector(".intro__screen button");
+// const startScreen = document.querySelector(".initial__screen");
+// const gameScreen = document.querySelector(".wrapper");
+
+// startButton.addEventListener("click", function() {
+//     startScreen.style.display = "none";
+//     gameScreen.style.display = "block";
+// });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const wrapper = document.querySelector('.wrapper');
+    const startButton = document.querySelector('.intro__screen button');
+    const startScreen = document.querySelector(".initial__screen");
+  
+    wrapper.style.display = 'none';
+  
+    startButton.addEventListener('click', function() {
+      wrapper.style.display = 'block';
+      startScreen.style.display = "none";
+    });
+  });
