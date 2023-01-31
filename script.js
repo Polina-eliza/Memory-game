@@ -77,7 +77,7 @@ cards.forEach(card => {
 
 document.addEventListener('DOMContentLoaded', function() {
     const wrapper = document.querySelector('.wrapper');
-    const startButton = document.querySelector('.intro__screen button');
+    const startButton = document.querySelector('.start__btn');
     const startScreen = document.querySelector(".initial__screen");
   
     wrapper.style.display = 'none';
