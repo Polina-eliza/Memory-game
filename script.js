@@ -99,15 +99,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-let seconds = 60;
-const countDownTimer = document.querySelector('.game__timer');
+// let seconds = 60;
+// const countDownTimer = document.querySelector('.game__timer');
 
-function tick() {
-    seconds--;
-    countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
-    if (seconds > 0) {
-        setTimeout(tick, 1000);
-    }
-}
+// function tick() {
+//     seconds--;
+//     countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
+//     if (seconds > 0) {
+//         setTimeout(tick, 1000);
+//     }
+// }
 
-setTimeout(tick, 1000);
+// setTimeout(tick, 1000);
