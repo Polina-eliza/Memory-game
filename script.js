@@ -3,7 +3,7 @@ let matched = 0;
 let cardOne, cardTwo;
 let disableDeck = false;
 const wrapper = document.querySelector('.wrapper');
-const startScreen = document.querySelector(".initial__screen");
+const startScreen = document.querySelector(".initial-screen");
 const timerDisplay = document.querySelector('.timer');
 const heading = document.createElement("h1");
 
@@ -26,13 +26,6 @@ function matchCards(img1, img2) {
         let audio = document.querySelector(".audio");
         audio.play();
         matched++;
-        // if (matched == 8) {
-        //     heading.textContent = "Good Job!";
-        //     wrapper.prepend(heading);
-        //     setTimeout(() => {
-        //         return shuffleCard();
-        //     }, 1000);
-        // }
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
         cardOne = cardTwo = "";
@@ -73,16 +66,14 @@ cards.forEach(card => {
 });
 
 
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const wrapper = document.querySelector('.wrapper');
-    const startButton = document.querySelector('.start__btn');
-    const startScreen = document.querySelector(".initial__screen");
+    const startButton = document.querySelector('.start-btn');
+    const startScreen = document.querySelector(".initial-screen");
     const timerDisplay = document.querySelector('.timer');
-    const countDownTimer = document.querySelector('.game__timer');
-    const gameOutcomeWon = document.querySelector('.game__outcome__won');
-    const gameOutcomeLost = document.querySelector('.game__outcome__lost');
+    const countDownTimer = document.querySelector('.game-timer');
+    const gameOutcomeWon = document.querySelector('.game-outcome-won');
+    const gameOutcomeLost = document.querySelector('.game-outcome-lost');
 
     wrapper.style.display = 'none';
     countDownTimer.style.display = 'none';
@@ -125,47 +116,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     }, 1000);
                     });
                     });
+
+
+
                     
-                    
-                    
-                    
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-//                 function tick() {
-//                   seconds--;
-//                   countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
-//                   if (seconds === 0 || matched == 8 ) {
-//                     countDownTimer.style.display = 'none';
-//                     gameOutcomeWon.style.display = 'block';
-//                   }
-//                   if (seconds === 0) {
-//                     countDownTimer.style.display = 'none';
-//                     gameOutcomeLost.style.display = 'block';
-//                   } 
-//                   if (seconds > 0) {
-//                     setTimeout(tick, 1000);
-//                   }
-//                 }
-//                 setTimeout(tick, 1000);
-//             } else {
-//                 timerDisplay.textContent = timeLeft;
-//             }
-//         }, 1000);
-//     });
-// });
-
-
-
-
-
+    
 
 
 
