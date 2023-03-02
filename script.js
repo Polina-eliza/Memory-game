@@ -69,6 +69,7 @@ cards.forEach(card => {
 document.addEventListener('DOMContentLoaded', function() {
     const wrapper = document.querySelector('.wrapper');
     const startButton = document.querySelector('.start-btn');
+    const againButton = document.querySelector('.again-btn');
     const startScreen = document.querySelector(".initial-screen");
     const timerDisplay = document.querySelector('.timer');
     const countDownTimer = document.querySelector('.game-timer');
@@ -79,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     countDownTimer.style.display = 'none';
     gameOutcomeWon.style.display = 'none';
     gameOutcomeLost.style.display = 'none';
+    againButton.style.display = 'none';
     
     startButton.addEventListener('click', function() {
         let timeLeft = 3;
@@ -93,29 +95,51 @@ document.addEventListener('DOMContentLoaded', function() {
                 timerDisplay.textContent = '';
                 let seconds = 60;
                 countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
+                
                 function tick() {
                     seconds--;
                     countDownTimer.innerHTML = '0:' + (seconds < 10 ? '0' : '') + String(seconds);
                     if (seconds === 0 || matched == 8 ) {
-                    countDownTimer.style.display = 'none';
-                    gameOutcomeWon.style.display = 'block';
+                        countDownTimer.style.display = 'none';
+                        gameOutcomeWon.style.display = 'block';
+                        wrapper.style.display = 'none';
+                        setTimeout(function() {
+                            againButton.style.display = 'block';
+                        }, 3000);
                     }
                     if (seconds === 0 && matched !== 8) {
-                    countDownTimer.style.display = 'none';
-                    gameOutcomeLost.style.display = 'block';
-                    gameOutcomeWon.style.display = 'none';
+                        countDownTimer.style.display = 'none';
+                        gameOutcomeLost.style.display = 'block';
+                        gameOutcomeWon.style.display = 'none';
+                        wrapper.style.display = 'none';
+                        setTimeout(function() {
+                            againButton.style.display = 'block';
+                        }, 3000);
                     }
                     if (seconds > 0) {
-                    setTimeout(tick, 1000);
+                        setTimeout(tick, 1000);
                     }
-                    }
-                    setTimeout(tick, 1000);
-                    } else {
-                    timerDisplay.textContent = timeLeft;
-                    }
-                    }, 1000);
-                    });
-                    });
+                }
+                setTimeout(tick, 1000);
+            } else {
+                timerDisplay.textContent = timeLeft;
+            }
+        }, 1000);
+    });
+    
+    function resetGame() {
+        startScreen.style.display = "block";
+        againButton.style.display = 'none';
+        gameOutcomeWon.style.display = 'none';
+        gameOutcomeLost.style.display = 'none';
+        wrapper.style.display = 'none';
+        countDownTimer.style.display = 'none';
+    }
+    
+    againButton.addEventListener('click', function() {
+        location.reload();
+    });
+});
 
 
 
