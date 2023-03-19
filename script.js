@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let seconds = 60;
         countDownTimer.innerHTML =
           "0:" + (seconds < 10 ? "0" : "") + String(seconds);
-        // Game timer
+      
         function tick() {
           seconds--;
           countDownTimer.innerHTML =
